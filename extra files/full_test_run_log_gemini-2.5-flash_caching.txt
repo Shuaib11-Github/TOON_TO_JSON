@@ -1,0 +1,949 @@
+TOON Format Validation - Full Test Log
+Run started at: 2025-11-21 16:24:59.204565
+Model: gemini-2.5-flash | Redis: localhost:6379
+==========================================================================================
+
+
+==========================================================================================
+TEST CASE: Fitness App
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "app": "FitTrack",
+  "users": [
+    {
+      "id": 201,
+      "name": "Maya",
+      "age": null,
+      "plan": "premium",
+      "goals": [
+        "weight_loss",
+        "strength"
+      ]
+    },
+    {
+      "id": 202,
+      "name": "Ravi",
+      "age": 35,
+      "plan": "basic",
+      "goals": [
+        "running"
+      ]
+    }
+  ]
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "app": "FitTrack",
+  "users": [
+    {
+      "id": 201,
+      "name": "Maya",
+      "age": null,
+      "plan": "premium",
+      "goals": ["weight_loss", "strength"]
+    },
+    {
+      "id": 202,
+      "name": "Ravi",
+      "age": 35,
+      "plan": "basic",
+      "goals": ["running"]
+    }
+  ]
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+app: FitTrack
+users[2]:
+  - id: 201
+    name: Maya
+    age: null
+    plan: premium
+    goals[2]: weight_loss,strength
+  - id: 202
+    name: Ravi
+    age: 35
+    plan: basic
+    goals[1]: running
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+app: FitTrack
+users[2]:
+  - id: 201
+    name: Maya
+    age: null
+    plan: premium
+    goals[2]: weight_loss,strength
+  - id: 202
+    name: Ravi
+    age: 35
+    plan: basic
+    goals[1]: running
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 338 bytes
+  TOON size  : 194 bytes
+  Reduction  : 42.6%
+
+✅ RESULTS FOR: Fitness App
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: E-Commerce Order
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "order_id": "ORD-789",
+  "customer": {
+    "id": 501,
+    "name": "Priya Mehta",
+    "email": "priya@example.com"
+  },
+  "items": [
+    {
+      "sku": "LAP-202",
+      "name": "Gaming Laptop",
+      "price": 1200,
+      "metadata": {
+        "warranty": "2 years",
+        "category": "Electronics"
+      }
+    },
+    {
+      "sku": "MOUSE-55",
+      "name": "Wireless Mouse",
+      "price": 25,
+      "metadata": {
+        "warranty": "1 year",
+        "category": "Accessories"
+      }
+    }
+  ],
+  "status": "shipped"
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "order_id": "ORD-789",
+  "customer": {
+    "id": 501,
+    "name": "Priya Mehta",
+    "email": "priya@example.com"
+  },
+  "items": [
+    {
+      "sku": "LAP-202",
+      "name": "Gaming Laptop",
+      "price": 1200,
+      "metadata": {
+        "warranty": "2 years",
+        "category": "Electronics"
+      }
+    },
+    {
+      "sku": "MOUSE-55",
+      "name": "Wireless Mouse",
+      "price": 25,
+      "metadata": {
+        "warranty": "1 year",
+        "category": "Accessories"
+      }
+    }
+  ],
+  "status": "shipped"
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+order_id: ORD-789
+customer:
+  id: 501
+  name: Priya Mehta
+  email: priya@example.com
+items[2]:
+  - sku: LAP-202
+    name: Gaming Laptop
+    price: 1200
+    metadata:
+      warranty: 2 years
+      category: Electronics
+  - sku: MOUSE-55
+    name: Wireless Mouse
+    price: 25
+    metadata:
+      warranty: 1 year
+      category: Accessories
+status: shipped
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+order_id: ORD-789
+customer:
+  id: 501
+  name: Priya Mehta
+  email: priya@example.com
+items[2]:
+  - sku: LAP-202
+    name: Gaming Laptop
+    price: 1200
+    metadata:
+      warranty: 2 years
+      category: Electronics
+  - sku: MOUSE-55
+    name: Wireless Mouse
+    price: 25
+    metadata:
+      warranty: 1 year
+      category: Accessories
+status: shipped
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 526 bytes
+  TOON size  : 355 bytes
+  Reduction  : 32.5%
+
+✅ RESULTS FOR: E-Commerce Order
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Analytics Data
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "metrics": [
+    {
+      "date": "2025-01-01",
+      "views": 6890,
+      "clicks": 401,
+      "conversions": 23,
+      "revenue": 6015.59,
+      "bounceRate": 0.63
+    },
+    {
+      "date": "2025-01-02",
+      "views": 6940,
+      "clicks": 323,
+      "conversions": 37,
+      "revenue": 9086.44,
+      "bounceRate": 0.36
+    }
+  ]
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "metrics": [
+    {
+      "date": "2025-01-01",
+      "views": 6890,
+      "clicks": 401,
+      "conversions": 23,
+      "revenue": 6015.59,
+      "bounceRate": 0.63
+    },
+    {
+      "date": "2025-01-02",
+      "views": 6940,
+      "clicks": 323,
+      "conversions": 37,
+      "revenue": 9086.44,
+      "bounceRate": 0.36
+    }
+  ]
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+metrics[2]{date,views,clicks,conversions,revenue,bounceRate}:
+  2025-01-01,6890,401,23,6015.59,0.63
+  2025-01-02,6940,323,37,9086.44,0.36
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+metrics[2]{date,views,clicks,conversions,revenue,bounceRate}:
+  2025-01-01,6890,401,23,6015.59,0.63
+  2025-01-02,6940,323,37,9086.44,0.36
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 339 bytes
+  TOON size  : 137 bytes
+  Reduction  : 59.6%
+
+✅ RESULTS FOR: Analytics Data
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: CI/CD Pipeline
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "pipeline_name": "WebApp-Deploy",
+  "trigger_on": [
+    "push:main",
+    "pull_request:main"
+  ],
+  "env": {},
+  "stages": [
+    {
+      "name": "Build",
+      "jobs": [
+        {
+          "name": "Compile-App",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Checkout",
+              "uses": "actions/checkout@v2"
+            },
+            {
+              "name": "Build",
+              "run": "npm run build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "jobs": [
+        {
+          "name": "Unit-Tests",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Run tests",
+              "run": "npm test"
+            }
+          ]
+        },
+        {
+          "name": "Linting",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Run linter",
+              "run": "npm run lint"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "pipeline_name": "WebApp-Deploy",
+  "trigger_on": [
+    "push:main",
+    "pull_request:main"
+  ],
+  "env": {},
+  "stages": [
+    {
+      "name": "Build",
+      "jobs": [
+        {
+          "name": "Compile-App",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Checkout",
+              "uses": "actions/checkout@v2"
+            },
+            {
+              "name": "Build",
+              "run": "npm run build"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Test",
+      "jobs": [
+        {
+          "name": "Unit-Tests",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Run tests",
+              "run": "npm test"
+            }
+          ]
+        },
+        {
+          "name": "Linting",
+          "runner": "ubuntu-latest",
+          "steps": [
+            {
+              "name": "Run linter",
+              "run": "npm run lint"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+pipeline_name: WebApp-Deploy
+trigger_on[2]: "push:main","pull_request:main"
+env:
+stages[2]:
+  - name: Build
+    jobs[1]:
+      - name: Compile-App
+        runner: ubuntu-latest
+        steps[2]:
+          - name: Checkout
+            uses: actions/checkout@v2
+          - name: Build
+            run: npm run build
+  - name: Test
+    jobs[2]:
+      - name: Unit-Tests
+        runner: ubuntu-latest
+        steps[1]{name,run}:
+          Run tests,npm test
+      - name: Linting
+        runner: ubuntu-latest
+        steps[1]{name,run}:
+          Run linter,npm run lint
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+pipeline_name: WebApp-Deploy
+trigger_on[2]: "push:main","pull_request:main"
+env:
+stages[2]:
+  - name: Build
+    jobs[1]:
+      - name: Compile-App
+        runner: ubuntu-latest
+        steps[2]:
+          - name: Checkout
+            uses: actions/checkout@v2
+          - name: Build
+            run: "npm run build"
+  - name: Test
+    jobs[2]:
+      - name: Unit-Tests
+        runner: ubuntu-latest
+        steps[1]:
+          - name: Run tests
+            run: "npm test"
+      - name: Linting
+        runner: ubuntu-latest
+        steps[1]:
+          - name: Run linter
+            run: "npm run lint"
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 1,015 bytes
+  TOON size  : 568 bytes
+  Reduction  : 44.0%
+
+✅ RESULTS FOR: CI/CD Pipeline
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Empty and Mixed Lists
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "id": "user-123",
+  "preferences": {
+    "notifications": true,
+    "tags": [],
+    "scores": [
+      100,
+      95,
+      null,
+      80
+    ],
+    "history": null
+  }
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "id": "user-123",
+  "preferences": {
+    "notifications": true,
+    "tags": [],
+    "scores": [100, 95, null, 80],
+    "history": null
+  }
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+id: user-123
+preferences:
+  notifications: true
+  tags[0]:
+  scores[4]: 100,95,null,80
+  history: null
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+id: user-123
+preferences:
+  notifications: true
+  tags[0]:
+  scores[4]: 100,95,null,80
+  history: null
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 174 bytes
+  TOON size  : 102 bytes
+  Reduction  : 41.4%
+
+✅ RESULTS FOR: Empty and Mixed Lists
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Content Requiring Quoting
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "title": "TOON: A format review, part {2}",
+  "author": "John \"Johnny\" Doe",
+  "summary": "A simple line.\nAnother line after a newline.",
+  "valid": true
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "title": "TOON: A format review, part {2}",
+  "author": "John \"Johnny\" Doe",
+  "summary": "A simple line.\nAnother line after a newline.",
+  "valid": true
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+title: "TOON: A format review, part {2}"
+author: "John \"Johnny\" Doe"
+summary: "A simple line.\nAnother line after a newline."
+valid: true
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+title: "TOON: A format review, part {2}"
+author: "John \"Johnny\" Doe"
+summary: "A simple line.\nAnother line after a newline."
+valid: true
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 162 bytes
+  TOON size  : 139 bytes
+  Reduction  : 14.2%
+
+✅ RESULTS FOR: Content Requiring Quoting
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Deeply Nested Structures
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "api_config": {
+    "version": 2,
+    "endpoints": {
+      "/users": {
+        "methods": {
+          "GET": {
+            "auth_required": true,
+            "permissions": [
+              "read:user",
+              "list:users"
+            ],
+            "params": {}
+          },
+          "POST": {
+            "auth_required": true,
+            "permissions": [
+              "create:user"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "api_config": {
+    "version": 2,
+    "endpoints": {
+      "/users": {
+        "methods": {
+          "GET": {
+            "auth_required": true,
+            "permissions": [
+              "read:user",
+              "list:users"
+            ],
+            "params": {}
+          },
+          "POST": {
+            "auth_required": true,
+            "permissions": [
+              "create:user"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+api_config:
+  version: 2
+  endpoints:
+    "/users":
+      methods:
+        GET:
+          auth_required: true
+          permissions[2]: "read:user","list:users"
+          params:
+        POST:
+          auth_required: true
+          permissions[1]: "create:user"
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+api_config:
+  version: 2
+  endpoints:
+    "/users":
+      methods:
+        GET:
+          auth_required: true
+          permissions[2]: "read:user","list:users"
+          params:
+        POST:
+          auth_required: true
+          permissions[1]: "create:user"
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 453 bytes
+  TOON size  : 262 bytes
+  Reduction  : 42.2%
+
+✅ RESULTS FOR: Deeply Nested Structures
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Top-Level Array
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+[
+  {
+    "event": "login",
+    "user_id": 101,
+    "success": true
+  },
+  {
+    "event": "logout",
+    "user_id": 101,
+    "success": true
+  }
+]
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+[
+  {
+    "event": "login",
+    "user_id": 101,
+    "success": true
+  },
+  {
+    "event": "logout",
+    "user_id": 101,
+    "success": true
+  }
+]
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+[2]{event,user_id,success}:
+  login,101,true
+  logout,101,true
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+[2]{event,user_id,success}:
+  login,101,true
+  logout,101,true
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 145 bytes
+  TOON size  : 62 bytes
+  Reduction  : 57.2%
+
+✅ RESULTS FOR: Top-Level Array
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Heterogeneous Array of Objects
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "items": [
+    {
+      "type": "book",
+      "title": "The Hobbit",
+      "pages": 310
+    },
+    {
+      "type": "movie",
+      "title": "The Matrix",
+      "duration_mins": 136
+    },
+    {
+      "type": "audiobook",
+      "title": "Dune",
+      "narrator": "Scott Brick"
+    }
+  ]
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "items": [
+    {
+      "type": "book",
+      "title": "The Hobbit",
+      "pages": 310
+    },
+    {
+      "type": "movie",
+      "title": "The Matrix",
+      "duration_mins": 136
+    },
+    {
+      "type": "audiobook",
+      "title": "Dune",
+      "narrator": "Scott Brick"
+    }
+  ]
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+items[3]:
+  - type: book
+    title: The Hobbit
+    pages: 310
+  - type: movie
+    title: The Matrix
+    duration_mins: 136
+  - type: audiobook
+    title: Dune
+    narrator: Scott Brick
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+items[3]:
+  - type: book
+    title: The Hobbit
+    pages: 310
+  - type: movie
+    title: The Matrix
+    duration_mins: 136
+  - type: audiobook
+    title: Dune
+    narrator: Scott Brick
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 289 bytes
+  TOON size  : 184 bytes
+  Reduction  : 36.3%
+
+✅ RESULTS FOR: Heterogeneous Array of Objects
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Strings Mimicking TOON Syntax
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "id": "item-001",
+  "description": "This is a key: with a value",
+  "notes": "users[2]{id,name}: is a sample TOON line.",
+  "config": "  - indented: text"
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "id": "item-001",
+  "description": "This is a key: with a value",
+  "notes": "users[2]{id,name}: is a sample TOON line.",
+  "config": "  - indented: text"
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+id: item-001
+description: "This is a key: with a value"
+notes: "users[2]{id,name}: is a sample TOON line."
+config: "  - indented: text"
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+id: item-001
+description: "This is a key: with a value"
+notes: "users[2]{id,name}: is a sample TOON line."
+config: "  - indented: text"
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 160 bytes
+  TOON size  : 135 bytes
+  Reduction  : 15.6%
+
+✅ RESULTS FOR: Strings Mimicking TOON Syntax
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+TEST CASE: Ambiguous Data Types
+==========================================================================================
+
+📄 GROUND TRUTH JSON (Original):
+----------------------------------------
+{
+  "product_id": "007",
+  "quantity": 25,
+  "is_active": "true",
+  "version": "1.0",
+  "null_value": "null"
+}
+
+📄 LLM-DECODED JSON (from Ground Truth TOON):
+----------------------------------------
+{
+  "product_id": "007",
+  "quantity": 25,
+  "is_active": "true",
+  "version": "1.0",
+  "null_value": "null"
+}
+
+📄 GROUND TRUTH TOON (from library):
+----------------------------------------
+product_id: "007"
+quantity: 25
+is_active: "true"
+version: "1.0"
+null_value: "null"
+
+📄 LLM-ENCODED TOON (from Ground Truth JSON):
+----------------------------------------
+product_id: "007"
+quantity: 25
+is_active: "true"
+version: "1.0"
+null_value: "null"
+
+📊 MEMORY COMPARISON (for this case)
+  JSON size  : 110 bytes
+  TOON size  : 82 bytes
+  Reduction  : 25.5%
+
+✅ RESULTS FOR: Ambiguous Data Types
+  DECODING (TOON → JSON) : PASS
+  ENCODING (JSON → TOON) : PASS
+==========================================================================================
+
+==========================================================================================
+🎯 FINAL SUMMARY
+==========================================================================================
+| Test Case                      | DECODE     | ENCODE     |
+-------------------------------------------------------
+| Fitness App                    | PASS       | PASS       |
+| E-Commerce Order               | PASS       | PASS       |
+| Analytics Data                 | PASS       | PASS       |
+| CI/CD Pipeline                 | PASS       | PASS       |
+| Empty and Mixed Lists          | PASS       | PASS       |
+| Content Requiring Quoting      | PASS       | PASS       |
+| Deeply Nested Structures       | PASS       | PASS       |
+| Top-Level Array                | PASS       | PASS       |
+| Heterogeneous Array of Objects | PASS       | PASS       |
+| Strings Mimicking TOON Syntax  | PASS       | PASS       |
+| Ambiguous Data Types           | PASS       | PASS       |
+
+==========================================================
+📊 AGGREGATE MEMORY ANALYSIS (ALL TEST CASES)
+| Format          | Total Size (Bytes)   | Reduction    |
+----------------------------------------------------------
+| JSON (Baseline) | 3,711                | -            |
+| TOON            | 2,220                | 40.2%        |
+
+📦 Cache Hit Rate: 95.5% (21 hits / 1 misses)
+
+OVERALL RESULT: ALL PASSED
+
+Run completed at: 2025-11-21 16:37:30.018687
+Total duration: 0:12:30.818463
+==========================================================================================

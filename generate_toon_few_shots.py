@@ -143,6 +143,26 @@ test_cases = [
                 {"id": 1, "name": "Admin"}
             ]
         }
+    },
+    {   
+        "name": "test_empty_array",
+        "data": {
+        "app": "HealthApp",
+        "users": [
+            {
+            "id": 301,
+            "name": "Alex",
+            "age": None,
+            "goals": ["cardio"]
+            },
+            {
+            "id": 302,
+            "name": "Sam",
+            "age": 29,
+            "goals": ["running", "yoga"]
+            }
+        ]
+        }
     }
 ]
 

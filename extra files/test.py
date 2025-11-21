@@ -96,12 +96,19 @@ c = encode(data3)
 print(c)
 print("-"*50)
 
+data4 = {"pipeline_name":"WebApp-Deploy","trigger_on":["push:main","pull_request:main"],"env":{},"stages":[{"name":"Build","jobs":[{"name":"Compile-App","runner":"ubuntu-latest","steps":[{"name":"Checkout","uses":"actions/checkout@v2"},{"name":"Build","run":"npm run build"}]}]},{"name":"Test","jobs":[{"name":"Unit-Tests","runner":"ubuntu-latest","steps":[{"name":"Run tests","run":"npm test"}]},{"name":"Linting","runner":"ubuntu-latest","steps":[{"name":"Run linter","run":"npm run lint"}]}]}]}
+d = encode(data4)
+print(d)
+
 ### Decoding the above encoded strings back to original data structures
 print("Decoding the encoded strings back to original data structures")
-x = decode(a)
-y = decode(b)
-z = decode(c)
+w = decode(a)
+x = decode(b)
+y = decode(c)
+z = decode(d)
 
+print(w)
+print("-"*50)
 print(x)
 print("-"*50)
 print(y)
@@ -110,6 +117,7 @@ print(z)
 print("-"*50)
 
 # Size comparison
-compare_sizes(data1, a, x, "Data 1")
-compare_sizes(data2, b, y, "Data 2")
-compare_sizes(data3, c, z, "Data 3")
+compare_sizes(data1, a, w, "Data 1")
+compare_sizes(data2, b, x, "Data 2")
+compare_sizes(data3, c, y, "Data 3")
+compare_sizes(data4, d, z, "Data 4")
