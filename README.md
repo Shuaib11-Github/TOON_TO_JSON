@@ -46,18 +46,12 @@ cp .env.example .env
 uv run generate_toon_few_shots.py
 ```
 
-### Validating using LLM
+### without caching
 ```bash
-uv run toon_to_json_llm_validation.py
+uv run final_test_gemini.py
 ```
 
-### Validating Locally
+### with caching
 ```bash
-uv run toon_to_json_local_validation.py
+uv run final_test_gemini_with_caching.py
 ```
-
-### Running Tests
-```bash
-uv run test.py
-```
-
