@@ -24,8 +24,8 @@ This project contains several Python scripts for processing 'toon' data, generat
 
 1. Clone the repository:
    ```bash
-   git clone <repo_url>
-   cd <repo_folder>
+   git clone https://github.com/Shuaib11-Github/TOON_TO_JSON.git
+   cd TOON_TO_JSON
    ```
 2. Install `uv`:
    ```bash
